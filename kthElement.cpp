@@ -5,56 +5,47 @@
 
 using namespace std;
 
-int findKthElement(vector<int> &input, int k)
+int findKthElement(vector<int> &inputSet, int k)
 {
 
-   if(k > input.size() || k <= 0){
+   if(k > inputSet.size() || k <= 0){
       cout<<"\nThis is not valid k value:  ";
       return k;
    }
 
-
-   priority_queue<int> qElements;
+   priority_queue<int> queuedElements;
    int countOfElementsInQ = 0;
-   for(int i = 0; i < input.size(); i++)
+   for(int i = 0; i < inputSet.size(); i++)
    {
-      if(qElements.empty() && countOfElementsInQ < k)
+      if(queuedElements.empty() && countOfElementsInQ < k)
       {
-         qElements.push(input[i]);
+         queuedElements.push(inputSet[i]);
          countOfElementsInQ++;
       }
       else 
       {
-         if(!qElements.empty() && countOfElementsInQ == (k))
+         if(!queuedElements.empty() && countOfElementsInQ == (k))
          {
-            if(qElements.top() > input[i]){
-               qElements.pop();
-               qElements.push(input[i]);
-
+            if(queuedElements.top() > inputSet[i]){
+               queuedElements.pop();
+               queuedElements.push(inputSet[i]);
             }
-
          }
-         else if(!qElements.empty() && countOfElementsInQ < k)
+         else if(!queuedElements.empty() && countOfElementsInQ < k)
          {
-            qElements.push(input[i]);
+            queuedElements.push(inputSet[i]);
             countOfElementsInQ++;
          } 
       }
-
    }
-   return qElements.top();
+   return queuedElements.top();
 }
 
 
 int main()
 {
-   vector<int> input; 
-   input.push_back(2);
-   input.push_back(11);
-   input.push_back(-10);
-   input.push_back(20);
-   input.push_back(1);
-   cout<<endl<<endl<<findKthElement(input,2)<<endl<<endl;
+   vector<int> inputSet {2,11,-10,20,1}; 
+   cout<<endl<<"The Kth Smallest Number is: "<<findKthElement(inputSet,2)<<endl;
 
 
 }
