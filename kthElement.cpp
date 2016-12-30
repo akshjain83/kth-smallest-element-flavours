@@ -8,7 +8,8 @@ using namespace std;
 int findKthElement(vector<int> &inputSet, int k)
 {
    //Validation for 'k'; K can only be between 1 and Number of Elements
-   if(k > inputSet.size() || k <= 0){
+   int inputSize = inputSet.size();
+   if(k > inputSize || k <= 0){
       cout<<"Impossible here\nThis is not valid k value:  ";
       return k;
    }
@@ -21,7 +22,7 @@ int findKthElement(vector<int> &inputSet, int k)
    int countOfElementsInQ = 0;
 
    //Iteration over the given inputSet to find kth smallest
-   for(int i = 0; i < inputSet.size(); i++)
+   for(int i = 0; i < inputSize; i++)
    {
       //If first element from input i.e Priority Queue doesnot hold anything
       if(queuedElements.empty())
