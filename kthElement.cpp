@@ -24,7 +24,7 @@ int findKthElement(vector<int> &inputSet, int k)
    for(int i = 0; i < inputSet.size(); i++)
    {
       //If first element from input i.e Priority Queue doesnot hold anything
-      if(queuedElements.empty() && countOfElementsInQ < k)
+      if(queuedElements.empty())
       {
          queuedElements.push(inputSet[i]);
          countOfElementsInQ++;
@@ -36,9 +36,9 @@ int findKthElement(vector<int> &inputSet, int k)
          /*Check whether PQ have exactly k elements; If it does then
           remove larger element and insert smaller i.e. current element in 
           iteration is smaller then root element then execute following*/
-
-         if(!queuedElements.empty() && countOfElementsInQ == (k))
+         if(countOfElementsInQ == k)
          {
+            
             //Since popping one element and at the same time pushing one 
             //element we dont increment or decrement counterOfElementsInQ
             if(queuedElements.top() > inputSet[i]){
@@ -48,7 +48,7 @@ int findKthElement(vector<int> &inputSet, int k)
          }
 
          //Hold Upto K Elements in Priority Queue
-         else if(!queuedElements.empty() && countOfElementsInQ < k)
+         else if(countOfElementsInQ < k)
          {
             queuedElements.push(inputSet[i]);
             countOfElementsInQ++;
@@ -65,8 +65,11 @@ int findKthElement(vector<int> &inputSet, int k)
 
 int main()
 {
-   vector<int> inputSet {2,11,-10,20,1}; 
-   cout<<endl<<"The Kth Smallest Number is: "<<findKthElement(inputSet,5)<<endl;
+   //vector<int> inputSet {2,11,-10,20,1}; 
+   vector<int> inputSet {3,7,-13,5,2}; 
+
+   cout<<endl<<"The Kth Smallest Number is: ";
+   cout<<findKthElement(inputSet,2)<<endl;
 
 
 }
