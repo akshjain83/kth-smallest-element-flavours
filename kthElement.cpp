@@ -7,8 +7,10 @@ using namespace std;
 
 int findKthElement(vector<int> &inputSet, int k)
 {
-   //Validation for 'k'; K can only be between 1 and Number of Elements
+   
    int inputSize = inputSet.size();
+
+   //Validation for 'k'; K can only be between 1 and Number of Elements
    if(k > inputSize || k <= 0){
       cout<<"Impossible here\nThis is not valid k value:  ";
       return k;
