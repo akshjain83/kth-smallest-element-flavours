@@ -1,7 +1,8 @@
 # README #
 
-*To create the C++ executable file for this algorithm:
-*Run g++ -std=c++11 *.cpp
+*To execute the algorithm:
+*Compile: g++ -std=c++11 *.cpp -o kElement
+*Run: ./kElement
 
 ### What is this repository for? ###
 
